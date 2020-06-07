@@ -22,6 +22,9 @@
     chdir: "{{ asdf_home }}"
   with_items: "{{ asdf_plugins }}"
   ignore_errors: True
+  notify: Process installed asdf plugins
+
+- meta: flush_handlers
 
 - name: "Install asdf packages"
   shell: >-
